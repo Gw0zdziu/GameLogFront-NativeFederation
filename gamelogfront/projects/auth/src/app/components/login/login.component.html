@@ -1,0 +1,19 @@
+<section class="container">
+  <h1 class="container__header">Zaloguj</h1>
+  <form  class="container__form">
+    <section class="form__field">
+      <label for="username">Nazwa użytkownika</label>
+      <input id="username" name="username" ngModel  required type="text">
+    </section>
+    <section class="form__field">
+      <label for="password"  >Hasło</label>
+      <input  id="password" name="password" ngModel required size="large"  type="password" />
+    </section>
+    <button class="form__button"   type="submit" [disabled]="isLogin()">
+      <!--@if (isLogin()){
+        <fa-icon animation="spin" [icon]="faSpinner" />
+      }-->
+      <span  >{{isLogin() ? 'Logowanie' : 'Zaloguj'}}</span>
+    </button>
+  </form>
+</section>
