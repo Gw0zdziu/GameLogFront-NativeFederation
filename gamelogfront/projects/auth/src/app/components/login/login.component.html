@@ -9,11 +9,11 @@
       <label for="password"  >Hasło</label>
       <input  id="password" name="password" ngModel required size="large"  type="password" />
     </section>
-    <button class="form__button"   type="submit" [disabled]="isLogin()">
+    <button (click)="loginUser()" class="form__button" [disabled]="isLogin()">
       <!--@if (isLogin()){
         <fa-icon animation="spin" [icon]="faSpinner" />
       }-->
-      <span  >{{isLogin() ? 'Logowanie' : 'Zaloguj'}}</span>
+      <span>{{isLogin() ? 'Logowanie' : 'Zaloguj'}}</span>
     </button>
   </form>
 </section>

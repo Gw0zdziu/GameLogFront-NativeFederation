@@ -1,8 +1,5 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {InputText} from 'primeng/inputtext';
-import {Password} from 'primeng/password';
-import {ButtonDirective, ButtonLabel} from 'primeng/button';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +13,8 @@ export class LoginComponent {
   readonly isLogin = signal(false);
 
   loginUser(){
-    console.log("login");
+    this.isLogin.set(true);
+    setTimeout(() => {this.isLogin.set(false)}, 3000)
   }
 
 }

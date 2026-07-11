@@ -1,7 +1,6 @@
 import { initFederation } from '@angular-architects/native-federation';
 
 initFederation({
- /* 'categories': 'http://localhost:4201/remoteEntry.json',*/
   'auth': 'http://localhost:4202/remoteEntry.json',
 })
   .catch(err => console.error(err))
