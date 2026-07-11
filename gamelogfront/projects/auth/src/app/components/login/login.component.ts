@@ -1,8 +1,6 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {InputText} from 'primeng/inputtext';
-import {Password} from 'primeng/password';
-import {ButtonDirective, ButtonLabel} from 'primeng/button';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +11,12 @@ import {ButtonDirective, ButtonLabel} from 'primeng/button';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  private authService = inject(AuthService);
   readonly isLogin = signal(false);
 
   loginUser(){
-    console.log("login");
+    this.isLogin.set(true);
+    setTimeout(() => {this.isLogin.set(false)}, 3000)
   }
 
 }

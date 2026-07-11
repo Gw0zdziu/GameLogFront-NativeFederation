@@ -1,3 +1,5 @@
+$base-color: #8b5cf6;
+
 :host{
   display: block;
 }
@@ -19,6 +21,7 @@
 
 .container__header{
   place-self: self-start;
+  font-weight: 600;
 }
 
 .container__form {
@@ -31,10 +34,30 @@
 .form__field {
   display: flex;
   flex-direction: column;
+
+  label{
+    letter-spacing: 1px;
+  }
+
+  input{
+    border: solid #a5b3c6 1px;
+    border-radius: 6px;
+    line-height: 3rem;
+    box-shadow: 0 0 #0000,0 0 #0000,0 1px 2px 0 rgba(18,18,23,0.05);
+  }
 }
 
 .form__button {
   width: 100%;
+  border: 1px solid $base-color;
+  background-color: $base-color;
+  border-radius: 6px;
+  height: 2.5rem;
+  cursor: pointer;
+  span{
+    color: #fff;
+    font-weight: 500;
+  }
 }
 
 .container__register {
