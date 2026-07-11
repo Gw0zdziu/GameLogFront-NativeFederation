@@ -1,6 +1,5 @@
 import {Component, inject, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,6 @@ import {AuthService} from '../../services/auth/auth.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  private authService = inject(AuthService);
   readonly isLogin = signal(false);
 
   loginUser(){
