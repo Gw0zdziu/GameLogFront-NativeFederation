@@ -15,7 +15,5 @@ export class AppComponent {
   constructor() {
   }
 
-  click(){
-    this.router.navigate(['auth']);
-  }
+
 }
