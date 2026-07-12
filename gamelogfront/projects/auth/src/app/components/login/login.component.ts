@@ -1,5 +1,7 @@
 import {Component, inject, signal} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, NgForm} from '@angular/forms';
+import {AuthService} from '../../services/auth/auth.service';
+import {LoginUser} from '../../models/login-user';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,23 @@ import {FormsModule} from '@angular/forms';
 })
 export class LoginComponent {
   readonly isLogin = signal(false);
+  private authService = inject(AuthService);
 
-  loginUser(){
-    this.isLogin.set(true);
-    setTimeout(() => {this.isLogin.set(false)}, 3000)
+  loginUser(loginForm: NgForm){
+    if (loginForm.valid) {
+      this.isLogin.set(true);
+      const loginUser: LoginUser = loginForm.value;
+      this.authService.loginUser(loginUser)
+        .subscribe({
+          next: () => {
+          },
+          error: () => {
+            this.isLogin.set(false);
+          }
+        })
+    }
   }
+
+
 
 }
